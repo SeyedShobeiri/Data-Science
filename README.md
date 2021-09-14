@@ -1,2 +1,2 @@
-# Data-Science
-ML and DS algorithms explained
+In this repo, most important ML algorithms will be explained with examples.
+Some algorithms explained here are:
