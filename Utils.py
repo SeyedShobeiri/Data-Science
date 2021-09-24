@@ -41,3 +41,30 @@ def stratified_shuffled_sampling(data,column,stratum_name,bins,labels,n_splits,t
         strat_test_set = data.loc[test_index]
     
     return strat_train_set, strat_test_set
+
+def rectify_missing_vals(data,column_name,method="median"):
+    if method == "median":
+        data[column_name].fillna(median,inplace=True)
+    elif method == "remove rows":
+        data.dropna(subset=[column_name],inplace=True)
+    elif method == "remove feature":
+        data.drop(column_name,axis=1)
+    else:
+        data[column_name].fillna(mean,inplace=True)
+        
+    return data
+            
+    
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+
+def scale_data(train_data,method="standardization"):
+    if method == "standardization":
+        standardScaler = StandardScaler()
+        standardScaler.fit_transform(train_data)
+    else:
+        minmaxScaler = MinMaxScaler()
+        minmaxScaler.fit_transform(train_data)
+        
+    return train_data
+        
