@@ -68,3 +68,7 @@ def scale_data(train_data,method="standardization"):
         
     return train_data
         
+def disply_cross_val_info(scores):
+    print("Scores": scores)
+    print("Mean:": scores.mean())
+    print("Standard Deviation:",scores.std())
