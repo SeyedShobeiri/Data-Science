@@ -99,3 +99,14 @@ def plot_digits(instances,images_per_row = 10, **options):
     image = np.concatenate(row_images, axis=0)
     plt.imshow(image, cmap = mpl.cm.binary, **options)
     plt.axis("off")
+    
+
+def plot_precision_recall_vs_threshold(precisions,recalls,thresholds,axis=[-20000,20000]):
+    plt.plot(thresholds,precisions[:-1],"b--",label="Precision")
+    plt.plot(thresholds,recalls[:-1],"g-",label="Recall")
+    plt.legend(loc="center right", fontsize=16) 
+    plt.xlabel("Threshold", fontsize=16)        
+    plt.grid(True)                              
+    plt.axis([axis[0], axis[1], 0, 1])
+    
+    plt.show()
