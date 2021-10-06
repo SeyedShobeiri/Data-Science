@@ -109,4 +109,20 @@ def plot_precision_recall_vs_threshold(precisions,recalls,thresholds,axis=[-2000
     plt.grid(True)                              
     plt.axis([axis[0], axis[1], 0, 1])
     
-    plt.show()
+    
+
+def plot_precision_vs_recall(precisions,recalls):
+    plt.plot(recalls,precisions,"b-",linewidth = 2)
+    plt.xlabel("Recalls",fontsize = 16)
+    plt.ylabel("Precisions",fontsize = 16)
+    plt.axis([0,1,0,1])
+    plt.grid(True)
+    
+
+def plot_roc_curve(fpr,tpr,label=None):
+    plt.plot(fpr,tpr,linewidth=2,label=label)
+    plt.plot([0,1],[0,1],'k--')
+    plt.axis([0,1,0,1])
+    plt.xlabel('FPR',fontsize = 16)
+    plt.ylabel('TPR',fontsize = 16)
+    plt.grid(True)
